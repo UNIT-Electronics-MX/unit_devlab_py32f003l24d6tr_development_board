@@ -24,12 +24,26 @@
 
 ## 🔌 Pinout
 
-Include a diagram like `docs/pinout.png` or describe functionally:
+<a ><img src="./resources/Pinout_icon.jpg?raw=false" width="500px"><br/> Pinout</a>
 
-| Pin Label | Function        | Notes                             |
-|-----------|------------------|-----------------------------------|
+### **Pinout Details**
+
+
+| Pin Label | Description     |
+|-----------|------------------|
+| VCC       | Power Input     | 
+| GND       | Ground          |
+| PA0      |  USART2_TX  MISO  |
+| PA1      |  USART2_RX  SCK |
+| PA2      | ADC_IN2      CS|
+| PB0  / PF2    |  GPIO / NRST    |
+| PB5      | LED Built In / GPIO / MOSI     |
+| PA13 / PB6    | SWDIO /  I2C_SCL   |
+| PA14 / PA10    | SWCLK /  I2C_SDA   |
+
 
 ## 📏 Board Dimensions
+
 <div align="center">
 <a href="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Dimensions</a>
 </div>

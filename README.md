@@ -1,12 +1,16 @@
 
 # PY32F003L24D6TR DevLab Development Board
 
+## Introduction
+
+
+The DevLab Development Board based on the PY32F003L24D6TR microcontroller is designed for rapid prototyping, embedded systems education, IoT experimentation, and wearable devices. This board combines flexible power options, modern connectivity, and accessible interfaces to accelerate your hardware development.
+
+
 <div align="center">
   <img src="hardware/resources/unit_top_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="450px" alt="Development Board">
   <p><em>PY32f003L24D6TR Devlab</em></p>
 </div>
-
-The DevLab Development Board based on the PY32F003L24D6TR microcontroller is designed for rapid prototyping, embedded systems education, IoT experimentation, and wearable devices. This board combines flexible power options, modern connectivity, and accessible interfaces to accelerate your hardware development.
 
 
 ## 📦 Overview
