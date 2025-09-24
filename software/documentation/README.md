@@ -1,9 +1,9 @@
 ---
-title: "Template Development Board"
+title: "JUN R3 Development Board"
 version: "1.0"
 modified: "2025-04-30"
-output: "template_development_board"
-subtitle: "Generic development board template for documentation"
+output: "JUN R3 Development Board"
+subtitle: "Development Board based on ATmega328P with NeoPixel Matrix"
 ---
 
 <!--
@@ -12,71 +12,71 @@ This file serves as an input to generate a datasheet-style technical PDF.
 Fill in each section without deleting or modifying the existing headings.
 -->
 
-# Template Development Board
+# JUN R3 Development Board
 
-![product](./images/top.png) <!-- FILL HERE: replace image if needed -->
+![alt text](../../hardware/resources/unit_top_V_0_0_1_ue0099_Sensor_Touch.png) <!-- FILL HERE: replace image if needed -->
 
-## Introduction
 
-<!-- FILL HERE -->
-Briefly describe the purpose, advantages, and general use of the development board.
+## KEY TECHNICAL SPECIFICATIONS
 
-## Functional Description
+<!-- 
+========================================
+EDITABLE SPECIFICATIONS TEMPLATE
+========================================
+Edita los valores a continuación según necesites.
+El formato se mantendrá automáticamente en el PDF generado.
+-->
+- **Microcontroller:** ATmega328P (8-bit AVR)
+- **Clock Speed:** 16 MHz
+- **Flash Memory:** 32KB
+- QWIIC Connector
+- NeoPixel 5x5 Matrix
+- USB-C Power Input (5V)
 
-<!-- FILL HERE -->
-- Bullet points describing key functional features
+
+### 🔌 CONNECTIVITY (Conectividad)
+<!-- Edita las interfaces y conectores disponibles -->
+| Interface | Details |
+|-----------|---------|
+| **Primary Interface** | GPIO (Interrupt) |
+| **Logic Levels** | VCC (2V – 5.5V tolerant) |
+| **Matrix 5x5** | GPIO-8 |
+
+
+
+
 
 ## Electrical Characteristics & Signal Overview
 
 <!-- FILL HERE -->
-- Operating voltage, current draw, logic levels, ADC resolution, touchpad sensitivity
+- **Wide supply range**: 2.0 V to 5.5 V, compatible with 3.3 V and 5 V systems.  
+- **Low power**: < 1 μA in standby mode.
 
-## Applications
+<!-- <!-- ## Applications
+
+
+
+## Features -->
 
 <!-- FILL HERE -->
-- Suggested applications (e.g., IoT, automation, monitoring, etc.)
-
 ## Features
 
-<!-- FILL HERE -->
-- List of main technical features of the microcontroller and board design
+- **ATMEGA328P** microcontroller (8-bit AVR)
+- **NeoPixel 5x5 Matrix** for visual feedback
+- **QWIIC Connector** for I2C peripherals
+- **USB-C Power Input** (5V)
+- **Breadboard Friendly**: Standard 0.1" pin spacing
+- **Compact Size**: 40mm x 40mm
+- **Wide Supply Range**: 2.0 V to 5.5 V,
 
-## Pin & Connector Layout
-
-| Group     | Available Pins | Suggested Use                          |
-|-----------|----------------|----------------------------------------|
-| GPIO      | <!-- FILL -->  | <!-- FILL -->                          |
-| UART      | <!-- FILL -->  | <!-- FILL -->                          |
-| TouchPad  | <!-- FILL -->  | <!-- FILL -->                          |
-| Analog    | <!-- FILL -->  | <!-- FILL -->                          |
-| SPI       | <!-- FILL -->  | <!-- FILL -->                          |
-
-## Settings
-
-### Interface Overview
-
-| Interface  | Signals / Pins         | Typical Use                              |
-|------------|------------------------|------------------------------------------|
-| UART       | <!-- FILL -->          | <!-- FILL -->                             |
-| I2C        | <!-- FILL -->          | <!-- FILL -->                             |
-| SPI        | <!-- FILL -->          | <!-- FILL -->                             |
-| USB        | <!-- FILL -->          | <!-- FILL -->                             |
-
-### Supports
-
-| Symbol | I/O         | Description                        |
-|--------|-------------|------------------------------------|
-| VCC    | Input       | <!-- FILL -->                      |
-| GND    | GND         | <!-- FILL -->                      |
-| IO     | Bidirectional | <!-- FILL -->                   |
 
 ## Block Diagram
 
-![Function Diagram](images/pinout.png) <!-- FILL HERE: replace image if needed -->
+![Function diagram](../../hardware/resources/unit_pinout_v_0_0_1_ue0099_sensor_touch_en.png) <!-- FILL HERE: replace image if needed -->
 
 ## Dimensions
 
-![Dimensions](images/dimension.png) <!-- FILL HERE: replace image if needed -->
+![Dimensions](../../hardware/resources/unit_dimension_V_0_0_1_ue0099_Sensor_Touch.png) <!-- FILL HERE: replace image if needed -->
 
 ## Usage
 
