@@ -18,16 +18,19 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 
 ## 🧪 Use Cases
 
-- 
+- Device Prototyping
+- Embedded Systems Education
+- Networked  Alambric Devices
+- Wearable Technology Development
 
 
 ## 🚀 Getting Started
 
 1. **Connect** the board via USB-C to your computer.
 2. **Install** the appropriate board package for:
-   - Arduino IDE
-   - PlatformIO
-   - ESP-IDF / Pico SDK
+   - Rust (e.g., `cargo install cargo-embed`) 
+
+
 3. **Flash** a sample project or use one from `/software/examples`
 
 4. **Power** via USB or external battery (if supported)
@@ -35,13 +38,12 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 
 ## 📚 Resources
 
-- [Schematic Diagram](hardware/schematic.pdf)
+- [Schematic Diagram](hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf)
 - [Board Dimensions (DXF)](docs/dimensions.dxf)
 - [Pinout Diagram](docs/pinout.png)
-- [Firmware Examples](firmware/)
-- [Getting Started Guide](docs/getting_started.md)
-
-
+- [Code Examples](software/examples)
+- [Getting Started Guide](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/)
+- [Documentation](https://github.com/UNIT-Electronics-MX/py32f0xx-hal)
 
 ## 📝 License
 
