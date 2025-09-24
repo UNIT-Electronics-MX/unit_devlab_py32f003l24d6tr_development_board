@@ -5,7 +5,7 @@
 
 ---
 
-## ⚙️ Technical Specifications
+## Technical Specifications
 
 - **Microcontroller:** [Insert name and variant]
 - **Core Architecture:** [Xtensa / ARM Cortex-M / RISC-V]
