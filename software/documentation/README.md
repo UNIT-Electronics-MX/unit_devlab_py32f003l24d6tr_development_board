@@ -13,20 +13,6 @@ Fill in each section without deleting or modifying the existing headings.
 -->
 
 
-### 🔌 CONNECTIVITY (Conectividad)
-<!-- Edita las interfaces y conectores disponibles -->
-| Interface | Details |
-|-----------|---------|
-| **Primary Interface** | JST 1 mm pitch QWIIC connector (I2C) |
-| **Power Input** | USB-C (5V) or external battery (if supported) |
-| **GPIO Pins** | Accessible via 0.1" headers |
-| **I2C** | Yes, via QWIIC connector |
-| **SPI** | Yes |
-| **UART** | Yes |
-| **ADC** | Yes, multiple channels |
-
-
-
 ## Electrical Characteristics & Signal Overview
 
 <!-- FILL HERE -->

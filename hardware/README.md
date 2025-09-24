@@ -12,9 +12,8 @@
 - **Clock Speed:** [e.g., 240 MHz]
 - **Flash / RAM:** [e.g., 8 MB Flash, 2 MB PSRAM]
 - **Wireless:** [2.4 GHz Wi-Fi, BLE 5.0]
-- **Interfaces:**
-  - UART / I2C / SPI / PWM
-  - USB Device or Host (if supported)
+- **Interfaces:** I2C, SPI, UART, ADC
+- **Connector:** QWIIC + Pin Headers
 - **Power:**
   - Input via USB-C: 5V
   - Regulated Output: 3.3V

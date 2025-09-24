@@ -53,8 +53,7 @@
 ```
 
 
-### **Pinout Details**
-
+### Pinout Details - PY32F003L24D6TR DevLab Development Board
 
 | Pin Label | Description     |
 |-----------|------------------|
