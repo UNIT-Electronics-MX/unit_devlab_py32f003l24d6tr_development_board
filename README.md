@@ -13,29 +13,44 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 </div>
 
 
+<div align="center">
+
+[<img src="https://img.shields.io/badge/Product%20Wiki-blue?style=for-the-badge" alt="Product Wiki">](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/)
+[<img src="https://img.shields.io/badge/Datasheet-green?style=for-the-badge" alt="Datasheet">](hardware/resources/PY32F003L24_datasheet.pdf)
+[<img src="https://img.shields.io/badge/Buy%20Now-orange?style=for-the-badge" alt="Buy Now">](https://uelectronics.com/)
+[<img src="https://img.shields.io/badge/Getting%20Started-purple?style=for-the-badge" alt="Getting Started">](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/getting-started)
+
+</div>
+
+
+
 ## 📦 Overview
 
-| Feature                 | Description                                                   |
-|------------------------|---------------------------------------------------------------|
-| Microcontroller         | PY32F003L24D6TR (32-bit ARM Cortex-M0) |
-| Memory                  | 24KB Flash, 4KB SRAM                                          |
-| Flash (Kbytes)              |       16        |
-| SRAM (Kbytes)               |        2        |
-| Advanced Timers (16-bit)    |        1        |
-| General Purpose Timers      |        4        |
-| Low Power Timer             |        1        |
-| SysTick                     |        1        |
-| Watchdog                    |        2        |
-| SPI                         |        1        |
-| I2C                         |        1        |
-| USART                       |        1        |
-| DMA Channels                |        3        |
-| RTC                         |      Yes        |
-| GPIOs                       |        7        |
-| 12-bit ADC (ext+int)        |      4+2        |
-| Comparators                 |        2        |
-| Max. CPU Frequency (MHz)    |       24        |
-| Operating Voltage (V)       |   1.7 ~ 5.5     |
+<div align="center">
+
+| Feature                      | Description                        |
+|------------------------------|------------------------------------|
+| Microcontroller              | PY32F003L24D6TR (32-bit ARM Cortex-M0) |
+| Memory                       | 24KB Flash, 4KB SRAM               |
+| Flash (Kbytes)               | 16                                 |
+| SRAM (Kbytes)                | 2                                  |
+| Advanced Timers (16-bit)     | 1                                  |
+| General Purpose Timers       | 4                                  |
+| Low Power Timer              | 1                                  |
+| SysTick                      | 1                                  |
+| Watchdog                     | 2                                  |
+| SPI                          | 1                                  |
+| I2C                          | 1                                  |
+| USART                        | 1                                  |
+| DMA Channels                 | 3                                  |
+| RTC                          | Yes                                |
+| GPIOs                        | 7                                  |
+| 12-bit ADC (ext+int)         | 4+2                                |
+| Comparators                  | 2                                  |
+| Max. CPU Frequency (MHz)     | 24                                 |
+| Operating Voltage (V)        | 1.7 ~ 5.5                          |
+
+</div>
 
 
 ## 🧪 Use Cases
@@ -46,27 +61,15 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 - Wearable Technology Development
 
 
-## 🚀 Getting Started
-
-1. **Connect** the board via USB-C to your computer.
-2. **Install** the appropriate board package for:
-   - Rust (e.g., `cargo install cargo-embed`) 
-   - Arduino (add the board via Board Manager using URL: `https://unit-electronics-mx.github.io/arduino-board-manager/`)
-
-
-3. **Flash** a sample project or use one from `/software/examples`
-
-4. **Power** via USB or external battery (if supported)
-
-
 ## 📚 Resources
 
-- [Schematic Diagram](hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf)
-- [Board Dimensions (DXF)](docs/dimensions.dxf)
+
 - [Pinout Diagram](docs/pinout.png)
+- [Schematic Diagram](hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf)
 - [Code Examples](software/examples)
-- [Getting Started Guide](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/)
-- [Documentation](https://github.com/UNIT-Electronics-MX/py32f0xx-hal)
+- [Datasheet components and peripherals](hardware/resources/PY32F003L24_datasheet.pdf)
+- [Product Wiki](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/)
+- [Purchase Link](https://uelectronics.com/)
 
 ## 📝 License
 

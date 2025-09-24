@@ -28,8 +28,7 @@
 
 ### **Pinout Details**
 
-
-| Pin Label | Description     |
+| Pin Label | Function / Notes                |
 |-----------|------------------|
 | VCC       | Power Input     | 
 | GND       | Ground          |
