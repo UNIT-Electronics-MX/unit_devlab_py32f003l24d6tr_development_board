@@ -29,6 +29,7 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 1. **Connect** the board via USB-C to your computer.
 2. **Install** the appropriate board package for:
    - Rust (e.g., `cargo install cargo-embed`) 
+   - Arduino (add the board via Board Manager using URL: `https://unit-electronics-mx.github.io/arduino-board-manager/`)
 
 
 3. **Flash** a sample project or use one from `/software/examples`
