@@ -96,16 +96,31 @@ class RepositoryExplorer:
         current_section = None
         current_content = []
         
+        # Lista de secciones a excluir del datasheet
+        excluded_sections = [
+            'Quick Setup',
+            'Installation',
+            'Getting Started', 
+            'Development Setup',
+            'Build Instructions',
+            'Links',
+            'Resources'  # Si también quieres excluir Resources con enlaces
+        ]
+        
         for line in lines:
             # Detectar títulos (## o ###)
             if line.strip().startswith('##'):
-                # Guardar sección anterior si existe
+                # Guardar sección anterior si existe y no está excluida
                 if current_section:
-                    sections[current_section] = {
-                        'content': '\n'.join(current_content).strip(),
-                        'source': source_info,
-                        'level': current_section.count('#')
-                    }
+                    section_title = current_section.replace('#', '').strip()
+                    if not any(excluded.lower() in section_title.lower() for excluded in excluded_sections):
+                        sections[current_section] = {
+                            'content': '\n'.join(current_content).strip(),
+                            'source': source_info,
+                            'level': current_section.count('#')
+                        }
+                    else:
+                        print(f"🚫 Sección excluida del datasheet: {section_title}")
                 
                 # Iniciar nueva sección
                 current_section = line.strip()
@@ -113,13 +128,17 @@ class RepositoryExplorer:
             elif current_section:
                 current_content.append(line)
         
-        # Guardar última sección
+        # Guardar última sección si no está excluida
         if current_section:
-            sections[current_section] = {
-                'content': '\n'.join(current_content).strip(),
-                'source': source_info,
-                'level': current_section.count('#')
-            }
+            section_title = current_section.replace('#', '').strip()
+            if not any(excluded.lower() in section_title.lower() for excluded in excluded_sections):
+                sections[current_section] = {
+                    'content': '\n'.join(current_content).strip(),
+                    'source': source_info,
+                    'level': current_section.count('#')
+                }
+            else:
+                print(f"🚫 Sección excluida del datasheet: {section_title}")
         
         return sections
     
@@ -2908,21 +2927,48 @@ class ProfessionalDatasheetGenerator:
                         # Nueva sección, terminar
                         break
                     elif in_intro_section:
-                        # Filtrar líneas de HTML/markdown
-                        if (not line.strip().startswith('<') and 
-                            not line.strip().startswith('!') and
-                            line.strip() != ''):
+                        # Filtrar líneas de HTML/markdown y contenido no deseado
+                        line_clean = line.strip()
+                        if (not line_clean.startswith('<') and 
+                            not line_clean.startswith('!') and
+                            not line_clean.startswith('###') and  # Filtrar subsecciones
+                            not 'Quick Setup' in line_clean and  # Filtrar Quick Setup
+                            not 'badge' in line_clean.lower() and  # Filtrar badges
+                            not 'github.com' in line_clean.lower() and  # Filtrar enlaces GitHub
+                            not line_clean.startswith('[![') and  # Filtrar badges markdown
+                            line_clean != ''):
                             intro_lines.append(line)
                 
                 if intro_lines:
                     # Unir las líneas y limpiar
                     intro_text = '\n'.join(intro_lines).strip()
-                    # Limpiar markdown básico
-                    intro_text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', intro_text)
-                    intro_text = re.sub(r'\*\*([^*]+)\*\*', r'\1', intro_text)
                     
-                    if intro_text:
-                        paragraphs.append(intro_text)
+                    # Filtrar contenido problemático por bloques
+                    # Dividir por párrafos y filtrar cada uno
+                    paragraphs_raw = intro_text.split('\n\n')
+                    clean_paragraphs = []
+                    
+                    for paragraph in paragraphs_raw:
+                        paragraph = paragraph.strip()
+                        # Saltar párrafos que contienen contenido no deseado
+                        if (paragraph and 
+                            'Quick Setup' not in paragraph and
+                            'badge' not in paragraph.lower() and
+                            'github.com' not in paragraph.lower() and
+                            not paragraph.startswith('###') and
+                            not paragraph.startswith('<img') and
+                            not paragraph.startswith('[![')):
+                            
+                            # Limpiar markdown del párrafo
+                            clean_paragraph = self.clean_markdown_content(paragraph)
+                            if clean_paragraph and len(clean_paragraph.strip()) > 10:
+                                clean_paragraphs.append(clean_paragraph)
+                    
+                    # Unir párrafos limpios
+                    if clean_paragraphs:
+                        final_text = '\n\n'.join(clean_paragraphs)
+                        if final_text:
+                            paragraphs.append(final_text)
                         
         except Exception as e:
             print(f"⚠️ Error al leer README: {e}")
@@ -4411,7 +4457,7 @@ class ProfessionalDatasheetGenerator:
         return '\n'.join(html_lines)
 
     def clean_markdown_content(self, content):
-        """Limpia contenido markdown removiendo enlaces, imágenes y manteniendo texto"""
+        """Limpia contenido markdown removiendo enlaces, imágenes y manteniendo texto técnico"""
         import re
         
         if not content:
@@ -4424,14 +4470,53 @@ class ProfessionalDatasheetGenerator:
         # Remover imágenes markdown
         content = re.sub(r'!\[[^\]]*\]\([^)]+\)', '', content)
         
-        # Remover enlaces pero mantener texto
+        # Remover enlaces pero mantener texto (más agresivo)
         content = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', content)
         
-        # Remover enlaces simples
+        # Remover URLs simples (http, https, ftp)
+        content = re.sub(r'https?://[^\s\]]+', '', content)
+        content = re.sub(r'ftp://[^\s\]]+', '', content)
+        
+        # Remover enlaces HTML
+        content = re.sub(r'<a[^>]*>(.*?)</a>', r'\1', content, flags=re.DOTALL)
+        
+        # Remover otros elementos HTML
         content = re.sub(r'<[^>]+>', '', content)
         
-        # Remover divs y HTML
-        content = re.sub(r'<[^>]+>', '', content)
+        # Remover líneas que son solo enlaces o referencias  
+        lines = content.split('\n')
+        filtered_lines = []
+        for line in lines:
+            line_clean = line.strip()
+            # Saltar líneas que son principalmente enlaces, badges o contenido no técnico
+            if (line_clean.startswith('[![') or 
+                line_clean.startswith('[!') or 
+                line_clean.startswith('<img') or
+                line_clean.startswith('###') or  # Subsecciones
+                'Quick Setup' in line_clean or  # Quick Setup específicamente
+                'github.com' in line_clean.lower() or
+                'badge' in line_clean.lower() or
+                'for-the-badge' in line_clean.lower() or
+                'Getting Started' in line_clean or
+                'Product Wiki' in line_clean or
+                'Datasheet' in line_clean or  
+                'Buy Now' in line_clean or
+                line_clean.startswith('- [') and '](' in line_clean):
+                continue
+            filtered_lines.append(line)
+        content = '\n'.join(filtered_lines)
+        
+        # Filtrar bloques completos que contienen contenido no deseado
+        paragraphs = content.split('\n\n')
+        clean_paragraphs = []
+        for paragraph in paragraphs:
+            if (paragraph.strip() and 
+                'Quick Setup' not in paragraph and
+                '<img' not in paragraph and
+                'badge' not in paragraph.lower() and
+                'github.com' not in paragraph.lower()):
+                clean_paragraphs.append(paragraph)
+        content = '\n\n'.join(clean_paragraphs)
         
         # Remover múltiples asteriscos y negritas
         content = re.sub(r'\*\*([^*]+)\*\*', r'\1', content)
@@ -4591,7 +4676,7 @@ class ProfessionalDatasheetGenerator:
         return applications
 
     def clean_markdown_links(self, text):
-        """Limpia enlaces markdown de un texto"""
+        """Limpia enlaces markdown de un texto para datasheet profesional"""
         import re
         
         if not text:
@@ -4605,6 +4690,17 @@ class ProfessionalDatasheetGenerator:
         
         # Remover imágenes ![alt](src)
         text = re.sub(r'!\[[^\]]*\]\([^)]+\)', '', text)
+        
+        # Remover URLs que quedaron sueltas
+        text = re.sub(r'https?://[^\s\]]+', '', text)
+        text = re.sub(r'ftp://[^\s\]]+', '', text)
+        
+        # Remover badges y elementos no técnicos
+        text = re.sub(r'!\[.*?\]\(.*?\)', '', text)  # Badges
+        
+        # Limpiar referencias a GitHub y otros servicios
+        text = re.sub(r'github\.com[^\s]*', '', text, flags=re.IGNORECASE)
+        text = re.sub(r'badge[^\s]*', '', text, flags=re.IGNORECASE)
         
         return text.strip()
 
