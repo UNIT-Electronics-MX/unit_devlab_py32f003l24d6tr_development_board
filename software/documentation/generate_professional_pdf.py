@@ -575,6 +575,39 @@ class ProfessionalDatasheetGenerator:
             color: #111827;
         }
         
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+        
+        .spec-table td {
+            padding: 6px 12px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 11pt;
+            vertical-align: top;
+        }
+        
+        .spec-table .spec-label {
+            color: #374151;
+            font-weight: 500;
+            width: 40%;
+        }
+        
+        .spec-table .spec-value {
+            font-weight: bold;
+            color: #111827;
+            width: 60%;
+        }
+        
+        .spec-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .spec-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
         .sub-spec {
             margin-left: 15px;
             font-size: 0.9em;
@@ -2424,6 +2457,68 @@ class ProfessionalDatasheetGenerator:
                 background: white !important;
             }
         }
+        
+        /* HARDWARE SPECIFICATIONS STYLES */
+        .hardware-specifications-page {
+            page-break-before: always;
+            padding: 20mm 15mm;
+            background: white;
+        }
+        
+        .section-page-title {
+            font-size: 28pt;
+            font-weight: 900;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 8mm;
+            letter-spacing: 1px;
+        }
+        
+        .section-page-subtitle {
+            font-size: 12pt;
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 15mm;
+            font-style: italic;
+        }
+        
+        .hardware-section {
+            margin-bottom: 8mm;
+            border-left: 3px solid #3498db;
+            padding-left: 4mm;
+        }
+        
+        .hardware-section-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 3mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .hardware-section-content {
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #34495e;
+        }
+        
+        .spec-item {
+            margin-bottom: 2mm;
+            padding: 1mm 0;
+        }
+        
+        .spec-item strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        @media print {
+            .hardware-specifications-page {
+                page-break-before: always;
+                padding: 15mm 10mm;
+            }
+        }
         """
     def parse_readme(self, readme_path):
         """Parsea README y extrae información técnica"""
@@ -2476,28 +2571,14 @@ class ProfessionalDatasheetGenerator:
         combined_content = main_data['content']
         hardware_content = hardware_data['content']
         
-        # Extraer secciones útiles del hardware README
-        hardware_sections = {
-            'Pinout': self.extract_section('Pinout', hardware_content),
-            'Description': self.extract_section('Description', hardware_content),
-            'Dimensions': self.extract_section('Dimensions', hardware_content),
-            'Topology': self.extract_section('Topology', hardware_content)
-        }
+        # Agregar TODO el contenido del hardware README al datasheet
+        # Comenzar con un separador para la sección de hardware
+        combined_content += "\n\n# Hardware\n"
         
-        # Buscar tabla de componentes/referencias
-        component_table = self.extract_component_table(hardware_content)
+        # Agregar todo el contenido del hardware README
+        combined_content += hardware_content
         
-        # Extraer tabla de pinout detallada del hardware
-        pinout_table = self.extract_pinout_table(hardware_content)
-        
-        # Agregar información de hardware que no esté en el README principal
-        if pinout_table and 'Pin & Connector Layout' not in combined_content:
-            combined_content += f"\n\n## Pin & Connector Layout\n{pinout_table}"
-        elif hardware_sections['Pinout'] and 'Pinout' not in combined_content:
-            combined_content += f"\n\n## Pin & Connector Layout\n{hardware_sections['Pinout']}"
-        
-        if component_table:
-            combined_content += f"\n\n## Component Reference\n{component_table}"
+
         
         # Combinar frontmatter si existe
         combined_frontmatter = main_data['frontmatter'].copy()
@@ -2745,8 +2826,10 @@ class ProfessionalDatasheetGenerator:
                             specs['Operating Voltage'] = value_clean
                         elif 'temperature' in key_clean.lower():
                             specs['Operating Temperature'] = value_clean
-                        elif 'interface' in key_clean.lower():
+                        elif any(term in key_clean.lower() for term in ['interface', 'interfaces']):
                             connectivity['interfaces'] = value_clean
+                        elif any(term in key_clean.lower() for term in ['connector', 'connectors']):
+                            connectivity['connector'] = value_clean
                         else:
                             specs[key_clean] = value_clean
         
@@ -2763,6 +2846,47 @@ class ProfessionalDatasheetGenerator:
                 'interfaces': 'Digital communication',
                 'connector': 'Standard connectors'
             }
+        
+        # Buscar información detallada de conectividad
+        connectivity_section = discovered_data['explorer'].get_best_section([
+            'Connectivity Options', 'Conectivity Options', 'Connectivity', 'Connection Options'
+        ])
+        
+        if connectivity_section:
+            content = connectivity_section['content']
+            lines = content.split('\n')
+            
+            interfaces = []
+            connectors = []
+            
+            for line in lines:
+                line = line.strip()
+                if line.startswith('- **') and ':' in line:
+                    # Extraer tipo de interfaz
+                    if 'I2C' in line.upper():
+                        interfaces.append('I2C')
+                        if 'QWIIC' in line.upper():
+                            connectors.append('QWIIC connector')
+                    if 'SPI' in line.upper():
+                        interfaces.append('SPI')
+                        if 'JST' in line.upper():
+                            connectors.append('JST connector')
+                    if 'GPIO' in line.upper():
+                        interfaces.append('GPIO')
+                        if 'header' in line.lower():
+                            connectors.append('Pin headers')
+                    if 'UART' in line.upper():
+                        interfaces.append('UART')
+                    if 'ADC' in line.upper():
+                        interfaces.append('ADC')
+                    if 'SWD' in line.upper():
+                        interfaces.append('SWD')
+            
+            # Actualizar connectivity con información detallada
+            if interfaces:
+                connectivity['interfaces'] = ', '.join(interfaces)
+            if connectors:
+                connectivity['connector'] = ' + '.join(connectors)
         
         return specs, connectivity
 
@@ -2902,6 +3026,124 @@ class ProfessionalDatasheetGenerator:
                 })
         
         return features
+
+    def generate_hardware_sections_html(self, discovered_data):
+        """Genera HTML para todas las secciones del hardware"""
+        html = ''
+        
+        # Buscar secciones de hardware en el discovered_data
+        # Excluir secciones que ya se procesan específicamente (Pinout Details se procesará por separado)
+        hardware_section_keys = [
+            '## Technical Specifications',
+            '## Connectivity Options',
+            '## 📏 Board Dimensions', 
+            '## 📃 Board Topology',
+            '## References'
+        ]
+        
+        found_hardware_sections = []
+        
+        # Buscar secciones de hardware en sections
+        if 'sections' in discovered_data:
+            for section_key, section_data in discovered_data['sections'].items():
+                if any(hw_key in section_key for hw_key in hardware_section_keys):
+                    found_hardware_sections.append({
+                        'title': section_key.replace('##', '').replace('#', '').strip(),
+                        'content': section_data.get('content', ''),
+                        'level': section_key.count('#')
+                    })
+        
+        if found_hardware_sections:
+            html += '''
+                <!-- HARDWARE SPECIFICATIONS -->
+                <div class="hardware-specifications-page">
+                    <div class="section-page-title">HARDWARE SPECIFICATIONS</div>
+                    <div class="section-page-subtitle">Complete technical documentation and specifications</div>
+            '''
+            
+            for section in found_hardware_sections:
+                # Omitir secciones vacías
+                if not section['content'].strip():
+                    continue
+                    
+                title = section['title']
+                content = section['content']
+                
+                # Limpiar emojis y caracteres especiales del título
+                clean_title = title.replace('🔌', '').replace('📏', '').replace('📃', '').strip()
+                
+                html += f'''
+                    <div class="hardware-section">
+                        <h3 class="hardware-section-title">{clean_title.upper()}</h3>
+                        <div class="hardware-section-content">
+                            <pre>{content[:500]}...</pre>
+                        </div>
+                    </div>
+                '''
+            
+            html += '''
+                </div>
+            '''
+        
+        return html
+    
+    def markdown_to_html_basic(self, markdown_text):
+        """Convierte markdown básico a HTML"""
+        html = ''
+        lines = markdown_text.split('\n')
+        in_table = False
+        
+        for line in lines:
+            line = line.strip()
+            
+            # Tabla
+            if '|' in line and not in_table:
+                in_table = True
+                html += '<table class="spec-table">\n'
+                # Procesar header de tabla
+                cells = [cell.strip() for cell in line.split('|') if cell.strip()]
+                html += '<thead><tr>'
+                for cell in cells:
+                    html += f'<th>{cell}</th>'
+                html += '</tr></thead><tbody>\n'
+                continue
+            elif '|' in line and in_table:
+                # Omitir línea separadora de tabla
+                if all(c in '-|: ' for c in line):
+                    continue
+                # Procesar fila de datos
+                cells = [cell.strip() for cell in line.split('|') if cell.strip()]
+                html += '<tr>'
+                for cell in cells:
+                    html += f'<td>{cell}</td>'
+                html += '</tr>\n'
+                continue
+            elif in_table and not '|' in line:
+                in_table = False
+                html += '</tbody></table>\n'
+            
+            # Lista con viñetas
+            if line.startswith('- **') and '**:' in line:
+                # Formato "- **Título**: Descripción"
+                parts = line[2:].split('**:', 1)
+                if len(parts) == 2:
+                    title = parts[0].replace('**', '').strip()
+                    desc = parts[1].strip()
+                    html += f'<div class="spec-item"><strong>{title}:</strong> {desc}</div>\n'
+                    continue
+            elif line.startswith('- '):
+                html += f'<div class="spec-item">• {line[2:]}</div>\n'
+                continue
+                
+            # Párrafos normales
+            if line and not line.startswith('#'):
+                html += f'<p>{line}</p>\n'
+        
+        # Cerrar tabla si quedó abierta
+        if in_table:
+            html += '</tbody></table>\n'
+            
+        return html
 
     def extract_introduction_from_discovery(self, discovered_data):
         """Extrae introducción desde los datos descubiertos sin duplicados"""
@@ -3358,6 +3600,21 @@ class ProfessionalDatasheetGenerator:
             # Actualizar discovered_data con el contenido combinado
             discovered_data['combined_content'] = combined_data['content']
             discovered_data['metadata'].update(combined_data['frontmatter'])
+            
+            # Actualizar el explorer con las nuevas secciones del hardware
+            # Extraer secciones del contenido combinado y agregarlas al explorer
+            hardware_sections = self.explorer.extract_all_sections(
+                hardware_data['content'],
+                {'path': 'hardware/README.md', 'directory': 'hardware', 'priority': 2}
+            )
+            
+            # Agregar las secciones de hardware al explorer
+            for section_title, section_data in hardware_sections.items():
+                if section_title not in self.explorer.discovered_content:
+                    self.explorer.discovered_content[section_title] = section_data
+            
+            # También actualizar las secciones directamente
+            discovered_data['sections'].update(hardware_sections)
         
         # FASE 2: Extraer información usando el nuevo sistema
         metadata = discovered_data['metadata']
@@ -3690,20 +3947,24 @@ class ProfessionalDatasheetGenerator:
                         '''
                     html += '</div>'
                 
-                # Add connectivity specifications
-                interfaces = connectivity_specs_dict.get('interfaces', connectivity_specs_dict.get('Interfaces', 'I²C, SPI'))
-                connector = connectivity_specs_dict.get('connector', connectivity_specs_dict.get('Connector', 'Qwiic + Pin Headers'))
+                # Add connectivity specifications in table format
+                interfaces = connectivity_specs_dict.get('interfaces', connectivity_specs_dict.get('Interfaces', 'I2C, SPI, UART, ADC'))
+                connector = connectivity_specs_dict.get('connector', connectivity_specs_dict.get('Connector', 'QWIIC + Pin Headers'))
                 html += f'''
                             <div class="spec-group">
                                 <h4>CONNECTIVITY</h4>
-                                <div class="spec-item">
-                                    <span class="spec-label">Interfaces:</span>
-                                    <span class="spec-value">{interfaces}</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Connector:</span>
-                                    <span class="spec-value">{connector}</span>
-                                </div>
+                                <table class="spec-table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="spec-label">Interfaces:</td>
+                                            <td class="spec-value">{interfaces}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="spec-label">Connector:</td>
+                                            <td class="spec-value">{connector}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -3734,18 +3995,6 @@ class ProfessionalDatasheetGenerator:
                     <div class="table-section">
                         <h2 class="section-title">COMMUNICATION INTERFACES</h2>
                         {interface_table}
-                    </div>
-            '''
-        
-        # COMPONENT REFERENCE TABLE (from hardware README)
-        component_table = self.markdown_table_to_html_professional(
-            self.extract_section('Component Reference', content)
-        )
-        if component_table:
-            html += f'''
-                    <div class="table-section">
-                        <h2 class="section-title">COMPONENT REFERENCE</h2>
-                        {component_table}
                     </div>
             '''
         
@@ -4225,6 +4474,11 @@ class ProfessionalDatasheetGenerator:
                 </div>
             '''
         
+        # HARDWARE SECTIONS - NUEVA SECCIÓN PARA MOSTRAR TODO EL CONTENIDO DE HARDWARE
+        hardware_sections_html = self.generate_hardware_sections_html(discovered_data)
+        if hardware_sections_html:
+            html += hardware_sections_html
+        
         # Add footer
         html += f'''
                 
@@ -4300,6 +4554,58 @@ class ProfessionalDatasheetGenerator:
         """Extrae especificaciones eléctricas usando el sistema de descubrimiento mejorado"""
         electrical_specs = []
         connectivity_specs = []
+        
+        # Primero, buscar información detallada de conectividad
+        connectivity_section = discovered_data['explorer'].get_best_section([
+            'Connectivity Options', 'Conectivity Options', 'Connectivity', 'Connection Options'
+        ])
+        
+        print(f"🔍 DEBUG: Connectivity section found: {connectivity_section is not None}")
+        if connectivity_section:
+            print(f"📋 DEBUG: Section title: {connectivity_section.get('title', 'N/A')}")
+            print(f"📝 DEBUG: Content preview: {connectivity_section['content'][:200]}...")
+            
+            content = connectivity_section['content']
+            lines = content.split('\n')
+            
+            interfaces = []
+            connectors = []
+            
+            for line in lines:
+                line = line.strip()
+                if line.startswith('- **') and ':' in line:
+                    # Extraer tipo de interfaz
+                    if 'I2C' in line.upper():
+                        interfaces.append('I2C')
+                        if 'QWIIC' in line.upper():
+                            connectors.append('QWIIC')
+                        if 'JST' in line.upper():
+                            connectors.append('JST')
+                    if 'SPI' in line.upper():
+                        interfaces.append('SPI')
+                        if 'JST' in line.upper() and 'JST' not in connectors:
+                            connectors.append('JST')
+                    if 'GPIO' in line.upper():
+                        interfaces.append('GPIO')
+                        if 'header' in line.lower():
+                            connectors.append('Pin Headers')
+                    if 'UART' in line.upper():
+                        interfaces.append('UART')
+                    if 'ADC' in line.upper():
+                        interfaces.append('ADC')
+                    if 'SWD' in line.upper():
+                        interfaces.append('SWD')
+            
+            # Crear información de conectividad estructurada para tabla HTML
+            if interfaces or connectors:
+                connectivity_info = {}
+                if interfaces:
+                    connectivity_info['interfaces'] = ', '.join(sorted(set(interfaces)))
+                if connectors:
+                    connectivity_info['connector'] = ' + '.join(sorted(set(connectors)))
+                
+
+                return electrical_specs, connectivity_info
         
         sections = discovered_data.get('sections', {})
         

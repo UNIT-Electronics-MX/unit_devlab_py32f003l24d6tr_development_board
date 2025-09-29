@@ -52,19 +52,14 @@
 
 ```
 
+### Pinout PY32F003L24D6TR DevLab Development Board
 
-### Pinout Details - PY32F003L24D6TR DevLab Development Board
-
-| Pin Label | Description     |
-|-----------|------------------|
-| VCC       | Power Input     | 
-| GND       | Ground          |
-| PA0      |  USART2_TX  MISO  |
-| PA1      |  USART2_RX  SCK |
-| PA2      | ADC_IN2      CS|
-| PB0  / PF2    |  GPIO / NRST    |
-| PB5      | LED Built In / GPIO / MOSI     |
-| PA13 / PB6    | SWDIO /  I2C_SCL   |
-| PA14 / PA10    | SWCLK /  I2C_SDA   |
-
-
+- **VCC**: Power input for the board
+- **GND**: Ground connection
+- **PA0**: USART2 transmit (TX) or SPI MISO function
+- **PA1**: USART2 receive (RX) or SPI SCK function
+- **PA2**: Analog input channel 2 (ADC_IN2) or SPI chip select (CS)
+- **PB0 / PF2**: General-purpose I/O (GPIO) or external reset (NRST)
+- **PB5**: On-board LED, general-purpose I/O (GPIO), or SPI MOSI function
+- **PA13 / PB6**: Serial Wire Debug I/O (SWDIO) or I2C clock line (I2C_SCL)
+- **PA14 / PA10**: Serial Wire Debug clock (SWCLK) or I2C data line (I2C_SDA)

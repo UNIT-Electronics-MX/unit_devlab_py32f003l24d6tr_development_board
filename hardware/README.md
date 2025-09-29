@@ -40,6 +40,13 @@
 | PA14 / PA10    | SWCLK /  I2C_SDA   |
 
 
+## Connectivity Options
+
+- **I2C:** JST 1mm QWIIC connector (Power + I2C lines)
+- **SPI:** JST 1mm connector (Power + SPI lines)
+- **GPIO:** 2x 4-pin headers for general-purpose I/O
+- **SWD:** Dedicated pins for programming and debugging
+
 ## 📏 Board Dimensions
 
 <div align="center">
