@@ -229,6 +229,39 @@
             color: #111827;
         }
         
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+        
+        .spec-table td {
+            padding: 6px 12px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 11pt;
+            vertical-align: top;
+        }
+        
+        .spec-table .spec-label {
+            color: #374151;
+            font-weight: 500;
+            width: 40%;
+        }
+        
+        .spec-table .spec-value {
+            font-weight: bold;
+            color: #111827;
+            width: 60%;
+        }
+        
+        .spec-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .spec-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
         .sub-spec {
             margin-left: 15px;
             font-size: 0.9em;
@@ -2078,6 +2111,68 @@
                 background: white !important;
             }
         }
+        
+        /* HARDWARE SPECIFICATIONS STYLES */
+        .hardware-specifications-page {
+            page-break-before: always;
+            padding: 20mm 15mm;
+            background: white;
+        }
+        
+        .section-page-title {
+            font-size: 28pt;
+            font-weight: 900;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 8mm;
+            letter-spacing: 1px;
+        }
+        
+        .section-page-subtitle {
+            font-size: 12pt;
+            color: #7f8c8d;
+            text-align: center;
+            margin-bottom: 15mm;
+            font-style: italic;
+        }
+        
+        .hardware-section {
+            margin-bottom: 8mm;
+            border-left: 3px solid #3498db;
+            padding-left: 4mm;
+        }
+        
+        .hardware-section-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 3mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .hardware-section-content {
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #34495e;
+        }
+        
+        .spec-item {
+            margin-bottom: 2mm;
+            padding: 1mm 0;
+        }
+        
+        .spec-item strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        @media print {
+            .hardware-specifications-page {
+                page-break-before: always;
+                padding: 15mm 10mm;
+            }
+        }
         </style>
         </head>
         <body>
@@ -2100,7 +2195,7 @@
                         </div>
                         <div class="version-section">
                             <div class="version-badge">v1.0</div>
-                            <div>2025-09-24</div>
+                            <div>2025-09-29</div>
                             <div>Rev. A</div>
                         </div>
                     </div>
@@ -2132,62 +2227,7 @@
                     </div>
                 </div>
             
-                    <div class="key-specs">
-                        <div class="specs-title">KEY TECHNICAL<br>SPECIFICATIONS</div>
-                        <div class="specs-grid">
-                
-                            <div class="spec-group">
-                                <h4>CONNECTIVITY</h4>
-                                <div class="spec-item">
-                                    <span class="spec-label">Interfaces:</span>
-                                    <span class="spec-value">I²C, SPI</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Connector:</span>
-                                    <span class="spec-value">Qwiic + Pin Headers</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
         
-                    <div class="table-section">
-                        <h2 class="section-title">PIN CONFIGURATION</h2>
-                        <table class="professional-table pinout-table">
-<thead>
-<tr>
-<th>Function / Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="pin-name">Power Input</td>
-</tr>
-<tr>
-<td class="pin-name">Ground</td>
-</tr>
-<tr>
-<td class="pin-name">USART2_TX  MISO</td>
-</tr>
-<tr>
-<td class="pin-name">USART2_RX  SCK</td>
-</tr>
-<tr>
-<td class="pin-name">ADC_IN2      CS</td>
-</tr>
-<tr>
-<td class="pin-name">GPIO / NRST</td>
-</tr>
-<tr>
-<td class="pin-name">LED Built In / GPIO / MOSI</td>
-</tr>
-<tr>
-<td class="pin-name">SWDIO /  I2C_SCL</td>
-</tr>
-</tbody>
-</table>
-                    </div>
-            
                     <div class="features-section">
                         <h2 class="section-title">KEY FEATURES</h2>
                         <div class="features-grid">
@@ -2450,6 +2490,63 @@
 <td>Solder Bridge to Enable LED Built In</td>
 </tr>
 </tbody>
+</table><table class="professional-table">
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IC1</td>
+<td>PY32f003L24D6TR Microcontroller</td>
+</tr>
+<tr>
+<td>U1</td>
+<td>AP2112K 3.3V Regulator</td>
+</tr>
+<tr>
+<td>SW1</td>
+<td>Reset Push Button</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>Power On LED</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>Built In LED to PB5</td>
+</tr>
+<tr>
+<td>J1</td>
+<td>JST 1mm Connector for I2C or JTAG</td>
+</tr>
+<tr>
+<td>J2</td>
+<td>JST 1mm Connector for I2C or JTAG</td>
+</tr>
+<tr>
+<td>J3</td>
+<td>JST 1mm Connector for SPI</td>
+</tr>
+<tr>
+<td>JP1</td>
+<td>Header for GPIOs</td>
+</tr>
+<tr>
+<td>JP2</td>
+<td>Header for GPIOs</td>
+</tr>
+<tr>
+<td>JP3</td>
+<td>Header for Power Supply Selection</td>
+</tr>
+<tr>
+<td>SB1</td>
+<td>Solder Bridge to Enable LED Built In</td>
+</tr>
+</tbody>
 </table>
                                 </div>
                     
@@ -2534,7 +2631,7 @@
 <thead>
 <tr>
 <th>Pin Label</th>
-<th>Description</th>
+<th>Function / Notes</th>
 </tr>
 </thead>
 <tbody>
@@ -2591,6 +2688,63 @@
                     </div>
                 </div>
             
+                <!-- HARDWARE SPECIFICATIONS -->
+                <div class="hardware-specifications-page">
+                    <div class="section-page-title">HARDWARE SPECIFICATIONS</div>
+                    <div class="section-page-subtitle">Complete technical documentation and specifications</div>
+            
+                    <div class="hardware-section">
+                        <h3 class="hardware-section-title">TECHNICAL SPECIFICATIONS</h3>
+                        <div class="hardware-section-content">
+                            <pre>- **Microcontroller:** [Insert name and variant]
+- **Core Architecture:** [Xtensa / ARM Cortex-M / RISC-V]
+- **Clock Speed:** [e.g., 240 MHz]
+- **Flash / RAM:** [e.g., 8 MB Flash, 2 MB PSRAM]
+- **Wireless:** [2.4 GHz Wi-Fi, BLE 5.0]
+- **Interfaces:** I2C, SPI, UART, ADC
+- **Connector:** QWIIC + Pin Headers
+- **Power:**
+  - Input via USB-C: 5V
+  - Regulated Output: 3.3V
+  - Battery Support: [Yes / No]
+- **Dimensions:** [e.g., 55mm x 25mm]...</pre>
+                        </div>
+                    </div>
+                
+                    <div class="hardware-section">
+                        <h3 class="hardware-section-title">CONNECTIVITY OPTIONS</h3>
+                        <div class="hardware-section-content">
+                            <pre>- **I2C:** JST 1mm QWIIC connector (Power + I2C lines)
+- **SPI:** JST 1mm connector (Power + SPI lines)
+- **GPIO:** 2x 4-pin headers for general-purpose I/O
+- **SWD:** Dedicated pins for programming and debugging...</pre>
+                        </div>
+                    </div>
+                
+                    <div class="hardware-section">
+                        <h3 class="hardware-section-title">BOARD DIMENSIONS</h3>
+                        <div class="hardware-section-content">
+                            <pre><div align="center">
+<a href="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Dimensions</a>
+</div>...</pre>
+                        </div>
+                    </div>
+                
+                    <div class="hardware-section">
+                        <h3 class="hardware-section-title">BOARD TOPOLOGY</h3>
+                        <div class="hardware-section-content">
+                            <pre><div align="center">
+<a href="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Topology</a>
+
+| Ref.  | Description                                                                 |
+|-------|-----------------------------------------------------------------------------|
+| IC1   | PY32f003L24D6TR Microcontroller                                             |
+| U1    | AP2112K 3.3V Re...</pre>
+                        </div>
+                    </div>
+                
+                </div>
+            
                 
                 <!-- FOOTER -->
                 <div class="footer">
@@ -2604,7 +2758,7 @@
                             <div>Professional Technical Datasheet</div>
                         </div>
                         <div class="footer-right">
-                            <div>Date: 2025-09-24</div>
+                            <div>Date: 2025-09-29</div>
                             <div>For commercial distribution</div>
                         </div>
                     </div>
@@ -2612,7 +2766,7 @@
             </div>
             
             <script>
-                document.title = 'UART_Professional_Datasheet_v1.0_2025-09-24';
+                document.title = 'UART_Professional_Datasheet_v1.0_2025-09-29';
                 
                 // Enhanced print function
                 function printDatasheet() {
