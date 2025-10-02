@@ -1,5 +1,5 @@
 
-# PY32F003L24D6TR DevLab Development Board
+# DevLab: PY32F003L24D6TR MCU Dev Board
 
 ## Introduction
 
@@ -26,10 +26,10 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 </div>
 
 
+<div align="center">
 
 ## Overview
 
-<div align="center">
 
 | Feature                      | Description                        |
 |------------------------------|------------------------------------|
