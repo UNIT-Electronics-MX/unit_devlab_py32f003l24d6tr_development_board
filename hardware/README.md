@@ -6,21 +6,20 @@
 
 ## Technical Specifications
 
-- **Microcontroller:** [Insert name and variant]
-- **Core Architecture:** [Xtensa / ARM Cortex-M / RISC-V]
-- **Clock Speed:** [e.g., 240 MHz]
-- **Flash / RAM:** [e.g., 8 MB Flash, 2 MB PSRAM]
-- **Wireless:** [2.4 GHz Wi-Fi, BLE 5.0]
+- **Microcontroller:** PY32f003L24D6TR (ARM Cortex-M0)
+- **Core Architecture:** 32-bit ARM Cortex-M0
+- **Clock Speed:** 24 MHz
+- **Flash / RAM:** 16 KB Flash, 2 KB SRAM
+- **Wireless:** None
 - **Interfaces:** I2C, SPI, UART, ADC
 - **Connector:** QWIIC + Pin Headers
 - **Power:**
   - Input via USB-C: 5V
   - Regulated Output: 3.3V
-  - Battery Support: [Yes / No]
-- **Dimensions:** [e.g., 55mm x 25mm]
+  - Battery Support: No
 
 
-## 🔌 Pinout
+##  Pinout
 
 <a ><img src="./resources/Pinout_icon.jpg?raw=false" width="500px"><br/> Pinout</a>
 
@@ -46,13 +45,13 @@
 - **GPIO:** 2x 4-pin headers for general-purpose I/O
 - **SWD:** Dedicated pins for programming and debugging
 
-## 📏 Board Dimensions
+## Board Dimensions
 
 <div align="center">
 <a href="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Dimensions</a>
 </div>
 
-## 📃 Board Topology
+## Board Topology
 <div align="center">
 <a href="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Topology</a>
 
@@ -75,3 +74,4 @@
 
 
 ## References
+- [datasheet](https://download.py32.org/Datasheet/en/PY32F003_Datasheet_Rev1.7.pdf)
