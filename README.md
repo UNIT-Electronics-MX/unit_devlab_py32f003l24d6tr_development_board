@@ -27,7 +27,7 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 
 
 
-## 📦 Overview
+## Overview
 
 <div align="center">
 
@@ -56,7 +56,7 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 </div>
 
 
-## 🧪 Use Cases
+## Use Cases
 
 - Device Prototyping
 - Embedded Systems Education
@@ -64,17 +64,12 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 - Wearable Technology Development
 
 
-## 📚 Resources
+##  Resources
 
+- [Schematics](hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf)
+- [Datasheet](hardware/resources/PY32F003L24_datasheet.pdf)
 
-- [Pinout Diagram](docs/pinout.png)
-- [Schematic Diagram](hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf)
-- [Code Examples](software/examples)
-- [Datasheet components and peripherals](hardware/resources/PY32F003L24_datasheet.pdf)
-- [Product Wiki](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/)
-- [Purchase Link](https://uelectronics.com/)
-
-## 📝 License
+## License
 
 All hardware and documentation in this project are licensed under the **MIT License**.  
 Please refer to [`LICENSE.md`](LICENSE.md) for full terms.

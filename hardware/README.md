@@ -3,7 +3,6 @@
 
 <a href="./unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf"><img src="resources/Schematics_icon.jpg?raw=false" width="500px"><br/> Schematics</a>
 
----
 
 ## Technical Specifications
 
