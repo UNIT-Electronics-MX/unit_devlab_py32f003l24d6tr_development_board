@@ -34,8 +34,8 @@
 | PA2      | ADC_IN2      CS|
 | PB0  / PF2    |  GPIO / NRST    |
 | PB5      | LED Built In / GPIO / MOSI     |
-| PA13 / PB6    | SWDIO /  I2C_SCL   |
-| PA14 / PA10    | SWCLK /  I2C_SDA   |
+| PA14 / PB6    | SWC /  I2C_SCL   |
+| PA13 / PA10    | SWD /  I2C_SDA   |
 
 
 ## Connectivity Options
