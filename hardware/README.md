@@ -1,8 +1,8 @@
 # Hardware
 
-
+<div align="center">
 <a href="./unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf"><img src="resources/Schematics_icon.jpg?raw=false" width="500px"><br/> Schematics</a>
-
+</div>
 
 ## Technical Specifications
 
@@ -21,9 +21,13 @@
 
 ##  Pinout
 
-<a ><img src="./resources/Pinout_icon.jpg?raw=false" width="500px"><br/> Pinout</a>
+<div align="center">
+<a href="./unit_pinout_v_0_0_1_ue0102_py32f003_en.pdf"><img src="./resources/unit_pinout_v_0_0_1_ue0102_py32f003_en.jpg" width="500px"><br/> Pinout</a>
+</div>
 
 ### **Pinout Details**
+
+<div align="center">
 
 | Pin Label | Function / Notes                |
 |-----------|------------------|
@@ -37,6 +41,7 @@
 | PA14 / PB6    | SWC /  I2C_SCL   |
 | PA13 / PA10    | SWD /  I2C_SDA   |
 
+</div>
 
 ## Connectivity Options
 
@@ -52,8 +57,9 @@
 </div>
 
 ## Board Topology
+
 <div align="center">
-<a href="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Topology</a>
+<a href="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_topology_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Topology</a> <br/><br/>
 
 | Ref.  | Description                                                                 |
 |-------|-----------------------------------------------------------------------------|
@@ -74,4 +80,4 @@
 
 
 ## References
-- [datasheet](https://download.py32.org/Datasheet/en/PY32F003_Datasheet_Rev1.7.pdf)
+- [Datasheet](https://download.py32.org/Datasheet/en/PY32F003_Datasheet_Rev1.7.pdf)
