@@ -17,7 +17,7 @@
   - Input via USB-C: 5V
   - Regulated Output: 3.3V
   - Battery Support: No
-
+  - Microcontroller voltage: 3.3V or 5V selected by jumper bridge
 
 ##  Pinout
 
@@ -50,12 +50,6 @@
 - **GPIO:** 2x 4-pin headers for general-purpose I/O
 - **SWD:** Dedicated pins for programming and debugging
 
-## Board Dimensions
-
-<div align="center">
-<a href="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Dimensions</a>
-</div>
-
 ## Board Topology
 
 <div align="center">
@@ -77,7 +71,11 @@
 | SB1   | Solder Bridge to Enable LED Built In                                        |
 </div>
 
+## Board Dimensions
 
+<div align="center">
+<a href="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png"><img src="./resources/unit_dimension_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.png" width="500px"><br/>Dimensions</a>
+</div>
 
 ## References
 - [Datasheet](https://download.py32.org/Datasheet/en/PY32F003_Datasheet_Rev1.7.pdf)
