@@ -19,6 +19,27 @@
   - Battery Support: No
   - Microcontroller voltage: 3.3V or 5V selected by jumper bridge
 
+### Electrical characteristics
+
+<div align="center">
+
+| **Parameter** |                 **Description**                 | **Min** | **Typ** | **Max** | **Unit** |
+|:-------------:|:-----------------------------------------------:|:-------:|:-------:|:-------:|:--------:|
+|      Vin      |      Input voltage to power on the module       |   2.5   |    -    |   5.5   |    V     |
+|     Ivcc      | Current flowing into VCC pin of microcontroller |    -    |    -    |   100   |    mA    |
+|     I3v3*     |        Maximum current of 3V3 regulator         |    -    |    -    |   600   |    mA    |
+|      Iio      |       Maximum Input/Output current of IOs       |    -    |    -    |   20    |    mA    |
+|     f_ext     |          User external clock frequency          |    -    |    8    |   32    |   MHz    |
+|      Vih      |            Input high level voltage             | 0.7 VCC |    -    |    -    |    V     |
+|      Vil      |             Input low level voltage             |    -    |    -    | 0.3 VCC |    V     |
+|      Vol      |            Output low level voltage             |    -    |    -    |   0.4   |    V     |
+|      Voh      |            Output high level voltage            | VCC-0.4 |    -    |    -    |    V     |
+
+*Optimal thermal management is required for the regulator to perform reliably at maximum output current.
+
+</div>
+
+
 ##  Pinout
 
 <div align="center">
