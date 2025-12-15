@@ -34,7 +34,6 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 | Feature                      | Description                        |
 |------------------------------|------------------------------------|
 | Microcontroller              | PY32F003L24D6TR (32-bit ARM Cortex-M0) |
-| Memory                       | 24KB Flash, 4KB SRAM               |
 | Flash (Kbytes)               | 16                                 |
 | SRAM (Kbytes)                | 2                                  |
 | Advanced Timers (16-bit)     | 1                                  |
