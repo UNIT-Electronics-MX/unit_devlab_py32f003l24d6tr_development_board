@@ -78,9 +78,6 @@ jobs:
         # Crear directorio docs si no existe (pero no eliminar hardware/)
         mkdir -p docs
 
-        # PDF generado desde LaTeX
-        cp software/documentation/build/${REPO_NAME}_product_brief.pdf docs/
-
         # PDF generado por Sphinx
         cp software/sphinx/pdf/programmer.pdf docs/${REPO_NAME}_sphinx.pdf
 
