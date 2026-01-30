@@ -1,0 +1,162 @@
+
+Introduction 
+===============
+
+
+The DevLab Development Board, powered by the PY32F003L24D6TR microcontroller, provides an efficient and compact platform for rapid prototyping, embedded systems education, IoT experimentation, and wearable technology development. Its design emphasizes flexibility and simplicity, integrating essential features that allow developers to focus on innovation rather than complex setups. The board operates around a 32-bit ARM® Cortex®-M0 core running up to 24 MHz, with 16 KB of Flash and 2 KB of SRAM, offering an ideal balance between processing performance and memory efficiency. This configuration enables smooth execution of control algorithms, communication routines, and sensor data processing across a wide range of embedded applications.
+
+To complement its processing capability, the DevLab board includes a rich set of onboard peripherals and hardware conveniences. Interfaces such as SPI, I²C, and UART simplify communication with external modules and sensors, while the 12-bit ADC and dual comparators support precise analog signal acquisition. The integrated 5 V → 3.3 V voltage regulator, 4-pin JST 1.0 mm connector for programming and I²C communication, reset button, and status LED on PB5 streamline both debugging and prototyping. Furthermore, the board maintains level-shifter compatibility between 3.3 V and 5 V logic, ensuring seamless operation with a broad ecosystem of peripherals. Together, these features make the DevLab PY32F003 board a practical and reliable tool for students, makers, and engineers aiming to explore low-power, high-efficiency embedded systems.
+
+Key Features
+------------
+
+- **ARM® Cortex®-M0 Core**: 32-bit RISC processor running up to 24 MHz, optimized for real-time control and low-power operation.
+- **Compact and Efficient Design**: Designed for embedded and IoT applications requiring small form factor and low energy consumption.
+- **Wide Operating Voltage**: Fully functional from 1.7 V to 5.5 V, suitable for battery or USB-powered systems.
+- **Onboard Voltage Regulator**: Integrated 5 V → 3.3 V LDO regulator, ensuring stable MCU operation from USB or external 5 V supply.
+- **Communication Interface**: 4-pin JST 1.0 mm connector for programming and I²C communication, compatible with standard DevLab and Qwiic wiring schemes.
+- **User Interface Components**:
+
+  - Reset Button: Allows manual restart of the microcontroller.
+  - Status LED (PB5): Blinks for power or firmware activity indication.
+
+- **Analog and Timing Peripherals**:
+
+  - 12-bit ADC (4 external + 2 internal channels)
+  - 2 analog comparators
+  - 1 advanced and 4 general-purpose 16-bit timers
+  - Low-power timer, SysTick, and dual watchdogs
+
+- **Communication Peripherals**: 1× SPI, 1× I²C, 1× USART — supporting up to 1 MHz I²C, 18 MHz SPI, and LIN/IrDA UART modes.
+- **Direct Memory Access (DMA)**: 3 independent channels for high-speed peripheral data handling.
+- **Real-Time Clock (RTC)**: Built-in calendar and alarm support with low-power retention.
+- **GPIO and Expansion**: Up to 7 multipurpose I/O pins with alternate function mapping.
+- **Level Shifter Compatibility**: Fully supports logic level interfacing between 3.3 V and 5 V systems, ensuring cross-platform signal safety.
+- **Operating Environment**: -40 °C to +85 °C industrial temperature range.
+- **DevLab format compatibility**.
+
+The DevLab format is a standardized hardware layout that exposes the majority of the microcontroller or integrated circuit functional pins, including connections for external sensors, converters, and other peripheral devices. It provides direct access to I²C, SPI, UART, and additional communication interfaces for flexible hardware interaction.
+
+Hardware Electrics characteristics
+-----------------------------------
+
+.. list-table:: Electrical characteristics
+   :widths: 15 35 10 10 10 10
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+     - Min
+     - Typ
+     - Max
+     - Unit
+   * - Vin
+     - Input voltage to power on the module
+     - 2.5
+     - —
+     - 5.5
+     - V
+   * - Ivcc
+     - Current flowing into VCC pin of microcontroller
+     - —
+     - —
+     - 100
+     - mA
+   * - I3v3*
+     - Maximum current of 3V3 regulator
+     - —
+     - —
+     - 600
+     - mA
+   * - Iio
+     - Maximum Input/Output current of IOs
+     - —
+     - —
+     - 20
+     - mA
+   * - f_ext
+     - User external clock frequency
+     - —
+     - 8
+     - 32
+     - MHz
+   * - Vih
+     - Input high level voltage
+     - 0.7VCC
+     - —
+     - —
+     - V
+   * - Vil
+     - Input low level voltage
+     - —
+     - —
+     - 0.3VCC
+     - V
+   * - Vol
+     - Output low level voltage
+     - —
+     - —
+     - 0.4
+     - V
+   * - Voh
+     - Output high level voltage
+     - VCC-0.4
+     - —
+     - —
+     - V
+
+
+Software Support
+----------------
+
+- **Arduino IDE**
+- **Py32f0xx-hal/ VS Code**: https://github.com/UNIT-Electronics-MX/py32f0xx-hal — Supports development with automated builds, serial monitoring, and advanced debugging projects.
+
+Py32f0xx-hal
+~~~~~~~~~~~~
+
+`Hardware Abstraction Layer (HAL) for PY32F0xx microcontrollers in Rust <https://github.com/UNIT-Electronics-MX/py32f0xx-hal>`_
+
+
+What is this?
+^^^^^^^^^^^^^
+
+This crate provides a Hardware Abstraction Layer (HAL) for the PY32F0xx family of microcontrollers from Puya Semiconductor. These are low-cost ARM Cortex-M0+ based MCUs that offer an excellent alternative to STM32F0xx series, perfect for:
+
+Applications 
+------------
+
+- **Consumer Electronics**: Smart home devices, small appliances, and battery-powered gadgets.
+- **Industrial Control**: Sensor interfaces, automation modules, power monitoring, and fan controllers.
+- **IoT Devices**: Environmental data loggers, wireless bridge modules, smart meters, and wearable submodules.
+- **Lighting Systems**: RGB/NeoPixel LED controllers, PWM dimmers, and sound-reactive lighting.
+- **Education & Prototyping**: Training kits, MCU programming practice, and portable debugging tools.
+- **Interface Control**: I²C/SPI bridges, input devices, touch keys, and DAC-based tone generators.
+
+PY32F0xx Hardware Abstraction Layer (HAL) documentation
+
+.. only:: html
+
+    .. rubric:: Schematic Diagram
+
+    .. raw:: html
+
+      <div style="text-align: center;">
+      <button style="background-color: rgb(226, 142, 15); color: white; border: none; padding: 10px 20px;"
+      onclick="window.open('./_static/hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf', '_blank')">
+      Download Schematics (PDF)
+      </button>
+      </div>
+      <br>
+      <iframe src="./_static/hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf" style="width:100%; height:500px;" frameborder="0"></iframe>
+
+.. .. only:: latex
+
+..    .. raw:: latex
+
+..       \clearpage
+..       \chapter*{Appendix A: Schematics}
+..       \addcontentsline{toc}{chapter}{Appendix A: Schematics}
+..       \includepdf[pages=-,landscape=true]{unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf}
+    
+
