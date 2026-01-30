@@ -1,7 +1,7 @@
 # Hardware
 
 <div align="center">
-<a href="./unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf"><img src="resources/Schematics_icon.jpg?raw=false" width="500px"><br/> Schematics</a>
+<a href="./unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf"><img src="resources/Schematics_icon.jpg?raw=false" width="300px"><br/> Schematics</a>
 </div>
 
 ## Technical Specifications
@@ -64,7 +64,7 @@
 
 </div>
 
-## Connectivity Options
+### Connectivity Options
 
 - **I2C:** JST 1mm QWIIC connector (Power + I2C lines)
 - **SPI:** JST 1mm connector (Power + SPI lines)
