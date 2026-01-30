@@ -20,10 +20,10 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 ### Quick Setup
 
 
-[<img src="https://wiki.uelectronics.com/wiki/devlab_py32f003l24d6tr_mcu_dev_board" alt="Product Wiki">](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/)
-[<img src="" alt="Datasheet">](hardware/resources/PY32F003L24_datasheet.pdf)
-[<img src="https://uelectronics.com/" alt="Buy Now">](https://uelectronics.com/)
-[<img src="" alt="Getting Started">](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/getting-started)
+[<img src="https://img.shields.io/badge/Product%20Wiki-blue?style=for-the-badge" alt="Product Wiki">](https://wiki.uelectronics.com/wiki/devlab_py32f003l24d6tr_mcu_dev_board)
+[<img src="https://img.shields.io/badge/Datasheet-green?style=for-the-badge" alt="Datasheet">](h#)
+[<img src="https://img.shields.io/badge/Buy%20Now-orange?style=for-the-badge" alt="Buy Now">](https://uelectronics.com/)
+[<img src="https://img.shields.io/badge/Getting%20Started-purple?style=for-the-badge" alt="Getting Started">](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/getting-started)
 
 </div>
 
@@ -36,6 +36,7 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 | Feature                      | Description                        |
 |------------------------------|------------------------------------|
 | Microcontroller              | PY32F003L24D6TR (32-bit ARM Cortex-M0) |
+| Memory                       | 24KB Flash, 4KB SRAM               |
 | Flash (Kbytes)               | 16                                 |
 | SRAM (Kbytes)                | 2                                  |
 | Advanced Timers (16-bit)     | 1                                  |
