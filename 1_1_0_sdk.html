@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; DevLab Development Board User Guide and Technical Reference 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=00122899"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_1_0_sdk';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hardware Pinout" href="1_1_2_pinout.html" />
+    <link rel="prev" title="Terms, Acknowledgments, and Licenses" href="1_0_0_terms.html" />
+    <link rel="icon" href="_static/icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="_static/icon.svg" type="image/x-icon">
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="DevLab Development Board User Guide and Technical Reference 0.0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="DevLab Development Board User Guide and Technical Reference 0.0.1 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_0_0_terms.html">Terms, Acknowledgments, and Licenses</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_2_pinout.html">Hardware Pinout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_3_pinout.html">Multiplexing function mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_0_openocd.html">OpenOCD and PyOCD Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_0_0_duino.html">Supported basic Arduino functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_0_0_hal.html">Rust HAL for PY32F0xx Microcontrollers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">How to Generate an Error Report</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UNIT-Electronics-MX/unit_devlab_py32f003l24d6tr_development_board" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UNIT-Electronics-MX/unit_devlab_py32f003l24d6tr_development_board/edit/main/docs/1_1_0_sdk.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UNIT-Electronics-MX/unit_devlab_py32f003l24d6tr_development_board/issues/new?title=Issue%20on%20page%20%2F1_1_0_sdk.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_1_0_sdk.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-electrics-characteristics">Hardware Electrics characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-support">Software Support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#py32f0xx-hal">Py32f0xx-hal</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this">What is this?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>The DevLab Development Board, powered by the PY32F003L24D6TR microcontroller, provides an efficient and compact platform for rapid prototyping, embedded systems education, IoT experimentation, and wearable technology development. Its design emphasizes flexibility and simplicity, integrating essential features that allow developers to focus on innovation rather than complex setups. The board operates around a 32-bit ARM® Cortex®-M0 core running up to 24 MHz, with 16 KB of Flash and 2 KB of SRAM, offering an ideal balance between processing performance and memory efficiency. This configuration enables smooth execution of control algorithms, communication routines, and sensor data processing across a wide range of embedded applications.</p>
+<p>To complement its processing capability, the DevLab board includes a rich set of onboard peripherals and hardware conveniences. Interfaces such as SPI, I²C, and UART simplify communication with external modules and sensors, while the 12-bit ADC and dual comparators support precise analog signal acquisition. The integrated 5 V → 3.3 V voltage regulator, 4-pin JST 1.0 mm connector for programming and I²C communication, reset button, and status LED on PB5 streamline both debugging and prototyping. Furthermore, the board maintains level-shifter compatibility between 3.3 V and 5 V logic, ensuring seamless operation with a broad ecosystem of peripherals. Together, these features make the DevLab PY32F003 board a practical and reliable tool for students, makers, and engineers aiming to explore low-power, high-efficiency embedded systems.</p>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>ARM® Cortex®-M0 Core</strong>: 32-bit RISC processor running up to 24 MHz, optimized for real-time control and low-power operation.</p></li>
+<li><p><strong>Compact and Efficient Design</strong>: Designed for embedded and IoT applications requiring small form factor and low energy consumption.</p></li>
+<li><p><strong>Wide Operating Voltage</strong>: Fully functional from 1.7 V to 5.5 V, suitable for battery or USB-powered systems.</p></li>
+<li><p><strong>Onboard Voltage Regulator</strong>: Integrated 5 V → 3.3 V LDO regulator, ensuring stable MCU operation from USB or external 5 V supply.</p></li>
+<li><p><strong>Communication Interface</strong>: 4-pin JST 1.0 mm connector for programming and I²C communication, compatible with standard DevLab and Qwiic wiring schemes.</p></li>
+<li><p><strong>User Interface Components</strong>:</p>
+<ul>
+<li><p>Reset Button: Allows manual restart of the microcontroller.</p></li>
+<li><p>Status LED (PB5): Blinks for power or firmware activity indication.</p></li>
+</ul>
+</li>
+<li><p><strong>Analog and Timing Peripherals</strong>:</p>
+<ul>
+<li><p>12-bit ADC (4 external + 2 internal channels)</p></li>
+<li><p>2 analog comparators</p></li>
+<li><p>1 advanced and 4 general-purpose 16-bit timers</p></li>
+<li><p>Low-power timer, SysTick, and dual watchdogs</p></li>
+</ul>
+</li>
+<li><p><strong>Communication Peripherals</strong>: 1× SPI, 1× I²C, 1× USART — supporting up to 1 MHz I²C, 18 MHz SPI, and LIN/IrDA UART modes.</p></li>
+<li><p><strong>Direct Memory Access (DMA)</strong>: 3 independent channels for high-speed peripheral data handling.</p></li>
+<li><p><strong>Real-Time Clock (RTC)</strong>: Built-in calendar and alarm support with low-power retention.</p></li>
+<li><p><strong>GPIO and Expansion</strong>: Up to 7 multipurpose I/O pins with alternate function mapping.</p></li>
+<li><p><strong>Level Shifter Compatibility</strong>: Fully supports logic level interfacing between 3.3 V and 5 V systems, ensuring cross-platform signal safety.</p></li>
+<li><p><strong>Operating Environment</strong>: -40 °C to +85 °C industrial temperature range.</p></li>
+<li><p><strong>DevLab format compatibility</strong>.</p></li>
+</ul>
+<p>The DevLab format is a standardized hardware layout that exposes the majority of the microcontroller or integrated circuit functional pins, including connections for external sensors, converters, and other peripheral devices. It provides direct access to I²C, SPI, UART, and additional communication interfaces for flexible hardware interaction.</p>
+</section>
+<section id="hardware-electrics-characteristics">
+<h2>Hardware Electrics characteristics<a class="headerlink" href="#hardware-electrics-characteristics" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Electrical characteristics</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 38.9%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Typ</p></th>
+<th class="head"><p>Max</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Vin</p></td>
+<td><p>Input voltage to power on the module</p></td>
+<td><p>2.5</p></td>
+<td><p>—</p></td>
+<td><p>5.5</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ivcc</p></td>
+<td><p>Current flowing into VCC pin of microcontroller</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>100</p></td>
+<td><p>mA</p></td>
+</tr>
+<tr class="row-even"><td><p>I3v3*</p></td>
+<td><p>Maximum current of 3V3 regulator</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>600</p></td>
+<td><p>mA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Iio</p></td>
+<td><p>Maximum Input/Output current of IOs</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>20</p></td>
+<td><p>mA</p></td>
+</tr>
+<tr class="row-even"><td><p>f_ext</p></td>
+<td><p>User external clock frequency</p></td>
+<td><p>—</p></td>
+<td><p>8</p></td>
+<td><p>32</p></td>
+<td><p>MHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vih</p></td>
+<td><p>Input high level voltage</p></td>
+<td><p>0.7VCC</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td><p>Vil</p></td>
+<td><p>Input low level voltage</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>0.3VCC</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vol</p></td>
+<td><p>Output low level voltage</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>0.4</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td><p>Voh</p></td>
+<td><p>Output high level voltage</p></td>
+<td><p>VCC-0.4</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>V</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="software-support">
+<h2>Software Support<a class="headerlink" href="#software-support" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Arduino IDE</strong></p></li>
+<li><p><strong>Py32f0xx-hal/ VS Code</strong>: <a class="github reference external" href="https://github.com/UNIT-Electronics-MX/py32f0xx-hal">UNIT-Electronics-MX/py32f0xx-hal</a> — Supports development with automated builds, serial monitoring, and advanced debugging projects.</p></li>
+</ul>
+<section id="py32f0xx-hal">
+<h3>Py32f0xx-hal<a class="headerlink" href="#py32f0xx-hal" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://github.com/UNIT-Electronics-MX/py32f0xx-hal">Hardware Abstraction Layer (HAL) for PY32F0xx microcontrollers in Rust</a></p>
+<section id="what-is-this">
+<h4>What is this?<a class="headerlink" href="#what-is-this" title="Link to this heading">#</a></h4>
+<p>This crate provides a Hardware Abstraction Layer (HAL) for the PY32F0xx family of microcontrollers from Puya Semiconductor. These are low-cost ARM Cortex-M0+ based MCUs that offer an excellent alternative to STM32F0xx series, perfect for:</p>
+</section>
+</section>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Consumer Electronics</strong>: Smart home devices, small appliances, and battery-powered gadgets.</p></li>
+<li><p><strong>Industrial Control</strong>: Sensor interfaces, automation modules, power monitoring, and fan controllers.</p></li>
+<li><p><strong>IoT Devices</strong>: Environmental data loggers, wireless bridge modules, smart meters, and wearable submodules.</p></li>
+<li><p><strong>Lighting Systems</strong>: RGB/NeoPixel LED controllers, PWM dimmers, and sound-reactive lighting.</p></li>
+<li><p><strong>Education &amp; Prototyping</strong>: Training kits, MCU programming practice, and portable debugging tools.</p></li>
+<li><p><strong>Interface Control</strong>: I²C/SPI bridges, input devices, touch keys, and DAC-based tone generators.</p></li>
+</ul>
+<p>PY32F0xx Hardware Abstraction Layer (HAL) documentation</p>
+<p class="rubric">Schematic Diagram</p>
+<div style="text-align: center;">
+<button style="background-color: rgb(226, 142, 15); color: white; border: none; padding: 10px 20px;"
+onclick="window.open('./_static/hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf', '_blank')">
+Download Schematics (PDF)
+</button>
+</div>
+<br>
+<iframe src="./_static/hardware/unit_schematic_v_0_0_1_ue0102_PY32f003L24D6TR_devlab.pdf" style="width:100%; height:500px;" frameborder="0"></iframe></section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_0_0_terms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Terms, Acknowledgments, and Licenses</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_1_2_pinout.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hardware Pinout</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-electrics-characteristics">Hardware Electrics characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-support">Software Support</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#py32f0xx-hal">Py32f0xx-hal</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this">What is this?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By R&D and Innovation Department
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Unit Electronics.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
