@@ -42,19 +42,6 @@ jobs:
         pip install Jinja2
 
     #################################################
-    # Procesar Documentación de Hardware
-    #################################################
-    - name: Clean previous hardware documentation
-      run: |
-        chmod +x .github/workflows/scripts/clean_docs.sh
-        .github/workflows/scripts/clean_docs.sh
-
-    - name: Copy hardware files and generate HTML
-      run: |
-        chmod +x .github/workflows/scripts/build_docs.sh
-        .github/workflows/scripts/build_docs.sh
-
-    #################################################
     # Generar Documentación Sphinx (HTML + PDF)
     #################################################
     - name: Build Sphinx Documentation
@@ -63,11 +50,6 @@ jobs:
         make clean
         make pdfx
 
-    - name: Add hardware link to Sphinx docs
-      run: |
-        chmod +x .github/workflows/scripts/add_hardware_link.sh
-        .github/workflows/scripts/add_hardware_link.sh
-
     #################################################
     # Preparar contenido para docs/
     #################################################
@@ -75,14 +57,15 @@ jobs:
       env:
         REPO_NAME: ${{ github.event.repository.name }}
       run: |
-        # Crear directorio docs si no existe (pero no eliminar hardware/)
+        # Limpiar y recrear directorio docs/
+        rm -rf docs
         mkdir -p docs
 
-        # PDF generado por Sphinx
-        cp software/sphinx/pdf/programmer.pdf docs/${REPO_NAME}_sphinx.pdf
+        # Copiar HTML generado por Sphinx directamente a docs/
+        rsync -av software/sphinx/docs/ docs/
 
-        # HTML generado por Sphinx (copiar archivos, no sobrescribir hardware/)
-        rsync -av --exclude='hardware' --exclude='hardware.html' software/sphinx/docs/ docs/
+        # Copiar PDF generado por Sphinx
+        cp software/sphinx/pdf/programmer.pdf docs/${REPO_NAME}_sphinx.pdf
 
     #################################################
     # Deploy to GitHub Pages (direct and fast)
