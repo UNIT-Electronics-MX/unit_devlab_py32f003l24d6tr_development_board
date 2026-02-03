@@ -33,6 +33,16 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
+        cache: 'pip'
+        cache-dependency-path: 'software/sphinx/requirements.txt'
+
+    - name: Cache LaTeX packages
+      uses: actions/cache@v4
+      with:
+        path: /usr/share/texlive
+        key: ${{ runner.os }}-texlive-${{ hashFiles('.github/workflows/build_pdf.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-texlive-
 
     - name: Install dependencies (Python + LaTeX + Ghostscript)
       run: |
@@ -51,21 +61,30 @@ jobs:
         make pdfx
 
     #################################################
+    # Generar Documentación de Hardware
+    #################################################
+    - name: Generate hardware documentation
+      run: |
+        chmod +x .github/workflows/scripts/build_docs.sh
+        .github/workflows/scripts/build_docs.sh
+
+    #################################################
     # Preparar contenido para docs/
     #################################################
     - name: Prepare docs/ directory
       env:
         REPO_NAME: ${{ github.event.repository.name }}
       run: |
-        # Limpiar y recrear directorio docs/
-        rm -rf docs
-        mkdir -p docs
-
         # Copiar HTML generado por Sphinx directamente a docs/
         rsync -av software/sphinx/docs/ docs/
 
         # Copiar PDF generado por Sphinx
         cp software/sphinx/pdf/programmer.pdf docs/${REPO_NAME}_sphinx.pdf
+
+    - name: Add hardware link to Sphinx docs
+      run: |
+        chmod +x .github/workflows/scripts/add_hardware_link.sh
+        .github/workflows/scripts/add_hardware_link.sh
 
     #################################################
     # Deploy to GitHub Pages (direct and fast)
