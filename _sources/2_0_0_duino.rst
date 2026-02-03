@@ -157,12 +157,6 @@ Connection reference
    :align: center
    :width: 70%
 
-Result
-~~~~~~
-
-Once the connections are completed and verified, the **DevLab: PY32F003L24D6TR**
-is correctly connected to the **CH552 Multi-Protocol Programmer** and ready
-to be programmed using **Arduino IDE** via **CMSIS-DAP**.
 
 
 Example Code (Blink)
@@ -188,3 +182,22 @@ Compile and upload the following example to blink the onboard LED.
      digitalWrite(LED_BUILTIN, LOW);   // LED OFF
      delay(500);
    }
+
+Once the connections are completed and verified, the **DevLab: PY32F003L24D6TR**
+is correctly connected to the **CH552 Multi-Protocol Programmer** and ready
+to be programmed using **Arduino IDE** via **CMSIS-DAP**.
+
+.. image:: _static/upload_firmware.png
+   :alt: DevLab
+   :align: center
+
+Flashing Firmware operation 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  add html gift
+.. raw:: html
+
+   <div style="text-align: center;">
+     <img src="_static/blink.gif" alt="Arduino IDE Uploading Firmware" />
+   </div>
+

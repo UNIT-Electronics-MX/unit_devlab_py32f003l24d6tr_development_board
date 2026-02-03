@@ -55,8 +55,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3_0_0_hal';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to Generate an Error Report" href="report.html" />
-    <link rel="prev" title="Supported basic Arduino functions" href="2_0_0_duino.html" />
+    <link rel="next" title="Supported basic Arduino functions" href="2_0_0_duino.html" />
+    <link rel="prev" title="OpenOCD and PyOCD Overview" href="1_2_0_openocd.html" />
     <link rel="icon" href="_static/icon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="_static/icon.svg" type="image/x-icon">
 
@@ -174,8 +174,10 @@
 <li class="toctree-l1"><a class="reference internal" href="1_1_2_pinout.html">Hardware Pinout</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_1_3_pinout.html">Multiplexing function mapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_2_0_openocd.html">OpenOCD and PyOCD Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_0_0_duino.html">Supported basic Arduino functions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Rust HAL for PY32F0xx Microcontrollers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_0_0_duino.html">Supported basic Arduino functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_0_0_serial.html">Serial Communication (UART)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_0_0_adc.html">Analog to Digital Converter (ADC)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="report.html">How to Generate an Error Report</a></li>
 </ul>
 
@@ -390,6 +392,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-rust-hal">Why Rust HAL?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-support">Linux Support</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 </ul>
             </nav>
@@ -418,6 +421,10 @@ document.write(`
 <li><p><strong>Community Support</strong>: The Rust embedded ecosystem is growing, with active community contributing to libraries, tools, and documentation.</p></li>
 </ul>
 </section>
+<section id="linux-support">
+<h2>Linux Support<a class="headerlink" href="#linux-support" title="Link to this heading">#</a></h2>
+<p>The Rust HAL for PY32F0xx microcontrollers is fully supported on Linux platforms. Developers can leverage the rich set of development tools available on Linux, including Cargo (Rust’s package manager and build system), GDB for debugging, and various flashing tools compatible with PY32F0xx microcontrollers.</p>
+</section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
 <p>To get started with Rust HAL for PY32F0xx microcontrollers, follow these steps:</p>
@@ -425,7 +432,7 @@ document.write(`
 <li><p><strong>Set Up Rust Toolchain</strong>: Install Rust and the necessary toolchains for embedded development.</p></li>
 <li><p><strong>Clone the Repository</strong>: Clone the Rust HAL repository from GitHub.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:UNIT-Electronics-MX/py32f0xx-hal.git
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -451,20 +458,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2_0_0_duino.html"
+       href="1_2_0_openocd.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Supported basic Arduino functions</p>
+        <p class="prev-next-title">OpenOCD and PyOCD Overview</p>
       </div>
     </a>
     <a class="right-next"
-       href="report.html"
+       href="2_0_0_duino.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to Generate an Error Report</p>
+        <p class="prev-next-title">Supported basic Arduino functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -485,6 +492,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-rust-hal">Why Rust HAL?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-support">Linux Support</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 </ul>
   </nav></div>
