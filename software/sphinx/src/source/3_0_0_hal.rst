@@ -15,6 +15,10 @@ Why Rust HAL?
 - **Abstraction**: The HAL provides a high-level interface to interact with the microcontroller's peripherals, making it easier to develop applications without needing to manage hardware registers directly.
 - **Community Support**: The Rust embedded ecosystem is growing, with active community contributing to libraries, tools, and documentation.
 
+Linux Support
+----------------
+The Rust HAL for PY32F0xx microcontrollers is fully supported on Linux platforms. Developers can leverage the rich set of development tools available on Linux, including Cargo (Rust's package manager and build system), GDB for debugging, and various flashing tools compatible with PY32F0xx microcontrollers.
+
 
 Getting Started
 ----------------
@@ -26,7 +30,7 @@ To get started with Rust HAL for PY32F0xx microcontrollers, follow these steps:
 
 .. code-block:: bash
 
-   git clone 
+   git clone git@github.com:UNIT-Electronics-MX/py32f0xx-hal.git
 
 3. **Build and Flash**: Use Cargo to build your project and flash it to the
     PY32F0xx microcontroller using a compatible programmer.
