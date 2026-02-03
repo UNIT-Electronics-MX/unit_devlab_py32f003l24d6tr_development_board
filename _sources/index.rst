@@ -16,8 +16,8 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
    1_1_2_pinout
    1_1_3_pinout
    1_2_0_openocd
-   2_0_0_duino
    3_0_0_hal
+   2_0_0_duino
    4_0_0_serial
    5_0_0_adc
   
