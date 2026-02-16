@@ -21,9 +21,9 @@ The DevLab Development Board based on the PY32F003L24D6TR microcontroller is des
 
 
 [<img src="https://img.shields.io/badge/Product%20Wiki-blue?style=for-the-badge" alt="Product Wiki">](https://wiki.uelectronics.com/wiki/devlab_py32f003l24d6tr_mcu_dev_board)
-[<img src="https://img.shields.io/badge/Datasheet-green?style=for-the-badge" alt="Datasheet">](h#)
+[<img src="https://img.shields.io/badge/Datasheet-green?style=for-the-badge" alt="Datasheet">](https://unit-electronics-mx.github.io/unit_devlab_py32f003l24d6tr_development_board/hardware/unit_datasheet_v_0_0_1_ue0102_py32f003_en.pdf)
 [<img src="https://img.shields.io/badge/Buy%20Now-orange?style=for-the-badge" alt="Buy Now">](https://uelectronics.com/)
-[<img src="https://img.shields.io/badge/Getting%20Started-purple?style=for-the-badge" alt="Getting Started">](https://unit-electronics-mx.github.io/unit_py32f003l24d6tr_devlab_development_board/getting-started)
+[<img src="https://img.shields.io/badge/Getting%20Started-purple?style=for-the-badge" alt="Getting Started">](https://unit-electronics-mx.github.io/unit_devlab_py32f003l24d6tr_development_board/)
 
 </div>
 
